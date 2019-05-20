@@ -52,14 +52,15 @@
           el: '#app',
           data() {
             return {
-              car: false,
+              car: [1,2,3,4,5],
             }  
           },
       })
   </script>
   <script>
         function myFunction(){
-      var x = document.getElementById('demo').innerHTML ="<iframe src='listaCliente.php' width='510px' height='600px'></iframe>"
+          let url = '/sistema';
+      var x = document.getElementById('demo').innerHTML ="<iframe src="+url+" width='510px' height='600px'></iframe>";
       }
       function myFunction2(){
         var y = document.getElementById('demo2').innerHTML ="<iframe src='listaFuncionario.php' width='510px' height='600px' ></iframe>"
@@ -68,7 +69,7 @@
   
   
   <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'js/bootstrap-datetimepicker.min.js'%}"></script>
+
   
   <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
@@ -79,7 +80,7 @@
   <!-- Custom scripts for this template -->
   <script src="{% static 'js/resume.min.js'%}"></script>
   <script src="{% static 'jsfront/location.js' %}"></script>  
-  
+  <script src="{% static 'js/bootstrap-datetimepicker.min.js'%}"></script>
   
   </body>
   </html>

@@ -11,15 +11,15 @@ $(document).ready(function(){
             
             });
             $('#cadastra_cliente').click(function(){
-                if(validaCPF($('#inputCpf').val())){
+                if(validaCPF($('#inputCpf').val())== true){
                     alert('cpf valido');
                 }else{
-                    alert('cpf invalido');
+                    alert('cpf invalido22');
                 }
             });
             $('#cadastra_func').click(function(){
-                if( validaCPF($('#inputCpf').val())){
-                    alert('cpf invalido');
+                if( validaCPF($('#inputCpffun2').val())){
+                    alert('cpf valido');
                 }else{
                     alert('cpf invalido');
                 }
@@ -27,9 +27,9 @@ $(document).ready(function(){
         
   
 });
-function enterform(e){
+function form_key(e){
     if(e.keyCode === 13){
-       alert('oi');
+		$('#cadastra_func').click();
     }
 }
 function validaCPF(cpf)
