@@ -5,31 +5,80 @@ $(document).ready(function(){
 
         $("#botaologincomcampos").click(function(){
             if($('#usuario').val()=='admin' && $('#senha').val() == '123456' ){
-                alert('');
+            
                 window.location = $(this).attr('url_index');
-            }
+            }else{
+				$('#modal_error').modal();
+				setTimeout(function(){
+					$("#modal_error").modal('hide');
+				}, 2000);
+			}
             
             });
             $('#cadastra_cliente').click(function(){
-                if(validaCPF($('#inputCpf').val())== true){
-                    alert('cpf valido');
-                }else{
-                    alert('cpf invalido22');
-                }
+                if((!validaCPF($('#inputCpf').val())) && ($('#inputCpf').val() != '')){
+					$("#inputCpf").addClass('error');
+					$("#errorcpf").css('display','block');
+					$("#errorcpf").css('color','red');
+					}else{
+					$("#inputCpf").removeClass('error');
+					$("#errorcpf").css('display','none');
+					}
+					let cep = $("#inputCEP").val();
+					if(cep != ''){
+					$.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+						console.log(dados);
+						if (!("erro" in dados)) {
+							//Atualiza os campos com os valores da consulta.
+							$("#endereco2").val(dados.logradouro+'-'+dados.bairro+'-'+dados.localidade+'-'+dados.uf);
+						} //end if.
+						else {
+							//CEP pesquisado não foi encontrado.
+							limpa_formulário_cep();
+							alert("CEP não encontrado.");
+						}
+					});
+				}
             });
             $('#cadastra_func').click(function(){
-                if( validaCPF($('#inputCpffun2').val())){
-                    alert('cpf valido');
+                if((!validaCPF($('#inputCpffun2').val())) && ($('#inputCpffun2').val() !='')){
+				$("#inputCpffun2").addClass('error');
+				$("#error").css('display','block');
+				$("#error").css('color','red');
                 }else{
-                    alert('cpf invalido');
-                }
+                $("#inputCpffun2").removeClass('error');
+				$("#error").css('display','none');
+				}
+				let cep = $("#inputcepfunc").val();
+				if(cep != ''){
+				$.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+                    console.log(dados);
+					if (!("erro" in dados)) {
+						//Atualiza os campos com os valores da consulta.
+						$("#endereco").val(dados.logradouro+'-'+dados.bairro+'-'+dados.localidade+'-'+dados.uf);
+					} //end if.
+					else {
+						//CEP pesquisado não foi encontrado.
+						limpa_formulário_cep();
+						alert("CEP não encontrado.");
+					}
+				});
+			}
             });
-        
+            // $('#cadastra_cliente').click(function(){
+            //     if(!validaCPF($('#inputCpf').val())){
+			// 	$("#inputCpf").addClass('error');
+			// 	$("#errorcpf").css('display','')
+            //     }else{
+            //     $("#inputCpf").removeClass('error');
+			// 	$("#errorcpf").css('display','none')
+            //     }
+            // });
   
 });
-function form_key(e){
+function form_key(e,tag){
     if(e.keyCode === 13){
-		$('#cadastra_func').click();
+		$(tag).click();
     }
 }
 function validaCPF(cpf)
