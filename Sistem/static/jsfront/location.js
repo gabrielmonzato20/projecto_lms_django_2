@@ -41,6 +41,7 @@ $(document).ready(function(){
 				}
             });
             $('#cadastra_func').click(function(){
+				console.log($('#inputCpffun2').val());
                 if((!validaCPF($('#inputCpffun2').val())) && ($('#inputCpffun2').val() !='')){
 				$("#inputCpffun2").addClass('error');
 				$("#error").css('display','block');
