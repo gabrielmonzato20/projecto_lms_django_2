@@ -43,13 +43,13 @@
             </div>
         
             <hr>
-            
+            <div id="app">
             <input type="checkbox" v-model="car">Adicionar carro dependente
             <br>
             <br>
-            <p v-if="!car"></p>
+           
 
-            <footer v-show="car">
+            <footer v-show="car" v-if='car' >
             
                <label>Modelo do Carro: </label> 
                 <input  type="text" name="ModCarro" id="ModCarro">
@@ -58,6 +58,7 @@
                 <label>Cor:</label>
                 <input  type="text" name="CorCarro" id="CorCarro"><br />
               </footer>
+            </div>
             <br>
             <button type="button" id="cadastra_cliente" class="btn btn-primary">Cadastrar</button>
           </form>

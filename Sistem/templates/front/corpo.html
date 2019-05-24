@@ -1,10 +1,11 @@
-<html lang="pt-br"><head><script src="https://unpkg.com/vue"></script>
+<html lang="pt-br">
+<head>
 
 {% load staticfiles %}
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>Mechanical System</title>
     <link rel="shortcut icon" href="{% static 'img/logoICO.ico'%}" type="image/x-icon">
   
@@ -25,7 +26,7 @@
   
   </head>
   <body id="page-top">
-      <div id="app">
+      <div id="">
       <nav id="sideNav" class="navbar navbar-expand-lg navbar-dark bg-menu fixed-top"
       ><a href="#page-top" class="navbar-brand js-scroll-trigger">
           <span class="d-block d-lg-none">Menu</span> 
@@ -46,17 +47,47 @@
                          {% endblock %}
                      </div>
                     </div>
-  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js"></script>
+
   <script>
   
-      new Vue({
+  var app = new Vue({
+    el:'#tables_form',
+    data:{
+      dados:[{
+      	'one':'',
+          'two':'',
+          'tree': '',
+          'four':'',
+          'five':'',
+          
+      },
+
+    ]
+    },
+    methods:{
+      add_linha:function(){
+          this.dados.push({
+          'one':'Digite os dados da peça',
+          'two':'',
+          'tree': '',
+          'four':'',
+          'five':''
+        })
+      },
+      excluir_linha:function(index){
+        this.dados.splice(index,1)
+      }
+
+    }
+  });
+     const app2 = new Vue({
           el: '#app',
-          data() {
-            return {
-              car: [1,2,3,4,5],
+          data:{
+              car: false,
             }  
-          },
-      })
+          })
+     
   </script>
   <script>
         function myFunction(){
@@ -82,6 +113,10 @@
   <script src="{% static 'js/resume.min.js'%}"></script>
   <script src="{% static 'jsfront/location.js' %}"></script>  
   <script src="{% static 'js/bootstrap-datetimepicker.min.js'%}"></script>
-  
+  <script type="text/javascript">
+  		$('#add_fild').click(function(){
+alert('oi');
+  	});
+  </script>
   </body>
   </html>

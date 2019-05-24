@@ -47,7 +47,27 @@
                     </div>
   
   <script>
-  
+  const app = new Vue({
+    el:'#form_table',
+    data:{
+      dados:[]
+    },
+    methods:{
+      add_linha(){
+        this.dados.push({
+          1:'',
+          2:'',
+          3: '',
+          4:'',
+          5:''
+        })
+      },
+      excluir_linha(index){
+        this.dados.splice(index,1)
+      }
+
+    }
+  })
       new Vue({
           el: '#app',
           data() {
