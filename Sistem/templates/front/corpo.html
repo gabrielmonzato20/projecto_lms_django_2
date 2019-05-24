@@ -76,7 +76,10 @@
         })
       },
       excluir_linha:function(index){
-        this.dados.splice(index,1)
+      	if(this.dados.length >1){
+      		this.dados.splice(index,1)
+      	}
+        
       }
 
     }
