@@ -8,39 +8,45 @@
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>Mechanical System</title>
     <link rel="shortcut icon" href="{% static 'img/logoICO.ico'%}" type="image/x-icon">
-  
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
-  
+
     <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  
-  
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
     <link href="{% static 'vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet">
     <link href="{% static 'css/pagina.css' %}" rel="stylesheet">
-  
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.jqueryui.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/b-1.5.6/datatables.min.css"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
     <!-- Custom styles for this template -->
     <link href="{% static 'css/resume.css'%}" rel="stylesheet">
-  
+
   </head>
   <body id="page-top">
       <div id="">
       <nav id="sideNav" class="navbar navbar-expand-lg navbar-dark bg-menu fixed-top"
       ><a href="#page-top" class="navbar-brand js-scroll-trigger">
-          <span class="d-block d-lg-none">Menu</span> 
+          <span class="d-block d-lg-none">Menu</span>
           <span class="d-none d-lg-block"><img src="{% static 'img/test.jpeg'%}" alt="" class="img-fluid img-profile rounded-circle mx-auto mb-2">
-        </span></a> 
+        </span></a>
         <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
-            <span class="navbar-toggler-icon"></span></button> 
+            <span class="navbar-toggler-icon"></span></button>
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
-                <ul class="navbar-nav"><li class="nav-item"><a href="#Inici" class="nav-link js-scroll-trigger">inicial</a></li> 
-                    <li class="nav-item"><a href="#CadCli" class="nav-link js-scroll-trigger">Cadastro Cliente</a></li> 
+                <ul class="navbar-nav"><li class="nav-item"><a href="#Inici" class="nav-link js-scroll-trigger">inicial</a></li>
+                    <li class="nav-item"><a href="#CadCli" class="nav-link js-scroll-trigger">Cadastro Cliente</a></li>
+                    {%if admin%}
                     <li class="nav-item"><a href="#CadFun" class="nav-link js-scroll-trigger active">Cadastro Funcionario</a></li>
-                     <li class="nav-item"><a href="#Consulta" class="nav-link js-scroll-trigger">Consulta</a></li> 
-                     <li class="nav-item"><a href="#Relatorio" class="nav-link js-scroll-trigger">Relatório</a></li> 
-                     <li class="nav-item"><a href="#Orcamento" class="nav-link js-scroll-trigger">Orçamento</a></li></ul></div></nav> 
+                    {%endif%}
+                     <li class="nav-item"><a href="#Consulta" class="nav-link js-scroll-trigger">Consulta</a></li>
+                     <li class="nav-item"><a href="#Relatorio" class="nav-link js-scroll-trigger">Relatório</a></li>
+                     <li class="nav-item"><a href="#Orcamento" class="nav-link js-scroll-trigger">Orçamento</a></li></ul></div></nav>
                      <div id="html" class="container-fluid p-0">
                          {% block conteudo %}
 
@@ -50,17 +56,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js"></script>
 
   <script>
-  
+
   var app = new Vue({
     el:'#tables_form',
     data:{
-      dados:[{
+      dados:[
+      {
       	'one':'',
           'two':'',
           'tree': '',
           'four':'',
           'five':'',
-          
+
+
       },
 
     ]
@@ -72,14 +80,14 @@
           'two':'',
           'tree': '',
           'four':'',
-          'five':''
+          'five':'',
         })
       },
       excluir_linha:function(index){
       	if(this.dados.length >1){
       		this.dados.splice(index,1)
       	}
-        
+
       }
 
     }
@@ -88,9 +96,9 @@
           el: '#app',
           data:{
               car: false,
-            }  
+            }
           })
-     
+
   </script>
   <script>
         function myFunction(){
@@ -101,25 +109,28 @@
         var y = document.getElementById('demo2').innerHTML ="<iframe src='listaFuncionario.php' width='510px' height='600px' ></iframe>"
       }
   </script>
-  
-  
-  <!-- Bootstrap core JavaScript -->
 
-  
+
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/b-1.5.6/datatables.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
-  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   <!-- Plugin JavaScript -->
   <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js'%}"></script>
-  
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<script src="{% static 'jsfront/location.js'%}">
+
+</script>
   <!-- Custom scripts for this template -->
   <script src="{% static 'js/resume.min.js'%}"></script>
-  <script src="{% static 'jsfront/location.js' %}"></script>  
-  <script src="{% static 'js/bootstrap-datetimepicker.min.js'%}"></script>
-  <script type="text/javascript">
-  		$('#add_fild').click(function(){
-alert('oi');
-  	});
-  </script>
+
   </body>
   </html>

@@ -1,26 +1,38 @@
+{%if admin%}
 <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="CadFun">
         <div class="w-100">
           <h2 class="mb-5">Cadastro Funcionario:
           </h2>
-        
 
-          <form >
+
+          <form id='cadastra_funcionarioform'>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label>Nome Completo:</label>
-                <input type="text" class="form-control"  placeholder="Digite seu Nome" name="inputNomefun">
+                <label>Nome do usuario:</label>
+                <input type="text" class="form-control"  placeholder="Digite seu Nome" name="nome_func">
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group has-feedback col-md-6 ">
+                <label for="password">Senha</label>
+                <input type="password" class="form-control" id="password" placeholder="Senha" name="password">
+                <i class="glyphicon glyphicon-eye-open form-control-feedback"></i>
+              </div>
+              <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="admin">
+  <label class="form-check-label" for="defaultCheck1">
+    Permissão Adimin
+  </label>
+</div>
+              <!-- <div class="form-group col-md-6">
                 <label for="inputCpf2">CPF:</label>
                 <input type="text" class="form-control"  placeholder="Digite seu CPF" name="inputCpffun" id='inputCpffun2' onkeypress=" return form_key(event,'#cadastra_func')">
                 <span id="error">CPF Invalido</span>
-              </div>
+              </div> -->
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="inputAddress">Endereço</label>
               <input type="text" class="form-control" placeholder="Digite o endereço" id="endereco" name="inputAddressfun">
-            </div>
-            <div class="form-row">
+            </div> -->
+            <!-- <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputCity">Cidade</label>
                 <input type="text" class="form-control" id="cidade" name="inputCityfun">
@@ -33,7 +45,7 @@
                 <label for="inputCEP">CEP</label>
                 <input type="text" class="form-control" id="inputcepfunc" name="inputCEPfun" onkeypress=" return form_key(event,'#cadastra_func')">
               </div>
-            </div>
+            </div> -->
 
             <button type="button"  id="cadastra_func" class="btn btn-primary">Cadastrar</button>
           </form>
@@ -41,3 +53,4 @@
       </section>
 
       <hr class="m-0">
+      {% endif %}
